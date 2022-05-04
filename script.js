@@ -2,10 +2,7 @@ const app = new Vue({
   el: '#app',
 
   data: {
-    newNote : {
-      text : '',
-      done : false,
-    },
+    newNote : '',
 
     notes: [
       {
@@ -33,8 +30,11 @@ const app = new Vue({
       this.notes.splice(index, 1)
     },
 
-    addNote(newNote) {
-      this.notes.push(newNote);
+    addNote(text) {
+      if(text !== ''){
+        this.notes.push({text, done : false});
+        this.newNote = '';
+      }
     }
 
   }
