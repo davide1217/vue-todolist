@@ -13,16 +13,16 @@
 
   <div id="app">
     <header>
-      <input type="text" placeholder="inserisci una nota">
-      <button>aggiungi</button>
+      <input v-model="newNote.text" type="text" placeholder="inserisci una nota">
+      <button @click.trim="addNote(newNote)">aggiungi</button>
     </header>
 
     <main>
       <div class="container">
 
         <div v-for="(note, index) in notes"  class="todo-item">
-          <span @click="markDone(index)" :class="notes[index].done">{{note.text}}</span>
-          <i class="fa-solid fa-xmark"></i>
+          <span @click="markDone(index)" :class=" { 'done' : note.done } ">{{note.text}}</span>
+          <i @click="deleteNote(index)" class="fa-solid fa-xmark"></i>
         </div>
         
 

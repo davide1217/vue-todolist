@@ -2,6 +2,10 @@ const app = new Vue({
   el: '#app',
 
   data: {
+    newNote : {
+      text : '',
+      done : false,
+    },
 
     notes: [
       {
@@ -20,10 +24,18 @@ const app = new Vue({
   },
 
   methods: {
-
+    
     markDone(index) {
       this.notes[index].done = (this.notes[index].done) ? false : true;
+    },
+
+    deleteNote(index) {
+      this.notes.splice(index, 1)
+    },
+
+    addNote(newNote) {
+      this.notes.push(newNote);
     }
-    
+
   }
 })

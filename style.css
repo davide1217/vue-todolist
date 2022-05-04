@@ -57,6 +57,6 @@ main {
   cursor: pointer;
 }
 
-.true {
+.done {
   text-decoration: line-through;
 }
